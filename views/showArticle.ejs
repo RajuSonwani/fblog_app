@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog:<%= article._id%></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="card text-white bg-secondary mt-4">
+            <div class="card-body">
+                <h4 class="card-title text-warning"><b><%= article.title%></b></h4>
+                <div class="card-subtitle text-dark mb-2"> 
+                    <%= article.createdAt.toLocaleDateString() %>
+                </div>
+                <a href="/" class="btn btn-info"> All Article</a>
+                <a href="/blog/edit/<%= article._id%>" class="btn btn-info"> Edit</a>
+                <div class="card-text mt-2"><%- article.sanitizedHtml %></div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

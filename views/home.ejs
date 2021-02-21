@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog:Home_Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h2 class="mt-2 text-success"> <b>#Blog Articles</b></h2>
+        <a href="/blog/new" class="btn text-warning bg-dark"> Add Article</a>
+        <% articles.forEach( article=> { %>
+        <div class="card text-white bg-dark mt-4">
+            <div class="card-body">
+                <h4 class="card-title text-info"><%= article.title%></h4>
+                <div class="card-subtitle text-muted mb-2"> <%= article.createdAt.toLocaleDateString() %></div>
+                <div class="card-text mb-2"><%= article.des%></div>
+                <a href="/blog/<%= article.slug %>" class="btn btn-info text-dark"> read more</a>
+                <form action="/blog/<%= article._id%>?_method=DELETE" method="POST" class="d-inline">
+                    <button  type="submit" class="btn btn-warning text-dark"> delete</button>
+                </form>
+            </div>
+        </div>
+        <% })%>
+    </div>
+
+    
+</body>
+</html>
